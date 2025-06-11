@@ -1,7 +1,6 @@
 package com.example.projekcik.DB;
 
 import com.example.projekcik.*;
-import Administrator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -110,7 +110,7 @@ public class AdminPanelController extends LoginController {
     public void wyswietlogin(String login) {
         loginLabel.setText(login);
         loginLabel.setVisible(true);
-        roleLabel.setText("(Administrator)");
+        roleLabel.setText("(com.example.projekcik.Administrator)");
     }
 
     public void dodajprodukt() {

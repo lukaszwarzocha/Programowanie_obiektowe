@@ -1,4 +1,4 @@
-import com.example.projekcik.Osoba;
+package com.example.projekcik;
 
 public class Administrator extends Osoba {
 
@@ -8,6 +8,6 @@ public class Administrator extends Osoba {
 
     @Override
     public String Wyswietlrola() {
-        return "Administrator";
+        return "com.example.projekcik.Administrator";
     }
 }
