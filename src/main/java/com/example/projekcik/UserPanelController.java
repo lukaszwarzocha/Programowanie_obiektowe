@@ -190,7 +190,6 @@ public class UserPanelController extends LoginController {
             cenaproduktuField.setCellValueFactory(new PropertyValueFactory<>("cena"));
             opisproduktuField.setCellValueFactory(new PropertyValueFactory<>("opis"));
         } catch (SQLException e) {
-
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Ladowanie produktow nie powiodlo sie!");
