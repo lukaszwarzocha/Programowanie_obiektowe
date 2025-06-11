@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400" prefWidth="595" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projekcik.UserPanelController">
+    <MenuButton mnemonicParsing="false" text="Zarzadzaj">
+        <items>
+            <MenuItem mnemonicParsing="false" onAction="#kupprodukt" text="Kup produkt" />
+            <MenuItem mnemonicParsing="false" onAction="#dodajsrodki" text="Dodaj srodki" />
+            <MenuItem mnemonicParsing="false" onAction="#pokazzamowieniapanel" text="Pokaz zamowienia" />
+            <MenuItem onAction="#wyloguj" text="Wyloguj" />
+        </items>
+    </MenuButton>
+    <VBox layoutX="351.0" prefHeight="25.0" prefWidth="243.0">
+        <HBox spacing="10">
+            <Label fx:id="loginLabel" />
+            <Label fx:id="roleLabel" />
+        </HBox>
+        <HBox prefHeight="43.0" prefWidth="243.0" spacing="10">
+            <Label fx:id="saldoLabel" />
+        </HBox>
+    </VBox>
+    <Label layoutX="203.0" prefHeight="17.0" prefWidth="132.0" text="Jestes zalogowany jako:" />
+    <Label layoutX="203.0" layoutY="17.0" text="Saldo konta:" />
+
+    <VBox fx:id="dodajpanel2" layoutX="4.0" layoutY="80.0" managed="false" prefHeight="321.0" prefWidth="600.0" visible="false">
+        <Label prefHeight="53.0" prefWidth="205.0" text="DODAJ ŚRODKI DO KONTA:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label text="Wpisz sume srodkow ktora chcesz dodac do konta:" />
+        <TextField fx:id="wplataField" />
+        <HBox prefHeight="100.0" prefWidth="200.0" translateY="20.0">
+            <Button onAction="#wplacsrodki" prefHeight="51.0" prefWidth="123.0" text="Wplac" translateX="230.0" />
+        </HBox>
+    </VBox>
+
+
+    <VBox fx:id="dodajpanel3" layoutY="80.0" prefHeight="321.0" prefWidth="595.0" visible="false" managed="false">
+        <Label text="DOSTEPNE PRODUKTY W SKLEPIE:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <SplitPane prefHeight="300.0" prefWidth="616.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="593.0">
+                <TableView fx:id="widok" layoutY="27.0" prefHeight="230.0" prefWidth="594.0">
+                    <columns>
+                        <TableColumn fx:id="zaznaczField" prefWidth="75.0" text="do koszyka" />
+                        <TableColumn fx:id="nazwaproduktuField" prefWidth="147.0" text="nazwa" />
+                        <TableColumn fx:id="cenaproduktuField" prefWidth="64.0" text="cena" />
+                        <TableColumn fx:id="iloscproduktuField" prefWidth="65.0" text="ilosc" />
+                        <TableColumn fx:id="opisproduktuField" prefWidth="242.0" text="opis produktu" />
+                    </columns>
+                </TableView>
+                <Button layoutX="202.0" layoutY="257.0" mnemonicParsing="false" onAction="#wyswietlkoszyk" prefHeight="34.0" prefWidth="168.0" text="Przejdz do koszyka" />
+                <TextField fx:id="szukanieField" onAction="#szukanieproduktow" layoutX="127.0" layoutY="2.0" />
+                <Label layoutX="6.0" layoutY="2.0" prefHeight="25.0" prefWidth="104.0" text="Szukaj produktu:" />
+            </AnchorPane>
+        </SplitPane>
+    </VBox>
+
+
+    <VBox fx:id="dodajpanel4" layoutY="95.0" managed="false" prefHeight="314.0" prefWidth="594.0" visible="false">
+        <Label prefHeight="25.0" prefWidth="167.0" text="Produkty w koszyku:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="190.0" prefWidth="594.0">
+            <TableView fx:id="widokkoszyka" prefHeight="190.0" prefWidth="594.0">
+                <columns>
+                    <TableColumn fx:id="koszykiloscproduktudozakupuField" prefWidth="132.0" text="ilosc_do_zakupu" />
+                    <TableColumn fx:id="koszyknazwaproduktuField" prefWidth="195.0" text="nazwa" />
+                    <TableColumn fx:id="koszykiloscproduktuField" minWidth="0.0" prefWidth="98.0" text="dostepna_ilosc" />
+                    <TableColumn fx:id="koszykcenaproduktuField" minWidth="0.0" prefWidth="62.0" text="cena" />
+                    <TableColumn fx:id="usuncheckbox" prefWidth="106.0" text="usun z koszyka" />
+                </columns>
+            </TableView>
+        </ScrollPane>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="100.0" prefWidth="476.0">
+                <Button mnemonicParsing="false" onAction="#Wstecz" prefHeight="46.0" prefWidth="131.0" text="Wstecz" />
+                <VBox prefHeight="100.0" prefWidth="196.0">
+                    <Label prefHeight="21.0" prefWidth="191.0" text="Calkowita kwota do zaplaty:" translateY="60.0">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
+                </VBox>
+                <TextField fx:id="cenacalkowitaField" prefHeight="25.0" prefWidth="105.0" translateX="1.0" translateY="60.0" />
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+                <VBox prefHeight="100.0" prefWidth="186.0">
+                    <Button onAction="#usunzkoszyka" prefHeight="42.0" prefWidth="159.0" text="Usuń zaznaczone" />
+                    <Button mnemonicParsing="false" onAction="#zakup" prefHeight="55.0" prefWidth="159.0" text="Zaplac" />
+                </VBox>
+            </HBox>
+        </HBox>
+    </VBox>
+
+    <VBox fx:id="dodajpanel5" layoutY="101.0" managed="false" prefHeight="299.0" prefWidth="599.0" visible="false">
+        <Label text="TWOJE ZAMOWIENIA:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TableView fx:id="widokzamowien" prefHeight="280.0" prefWidth="599.0">
+            <columns>
+                <TableColumn fx:id="statusField" prefWidth="200.0" text="status zamowienia" />
+                <TableColumn fx:id="datazamowieniaField" prefWidth="230.0" text="data zamowienia" />
+                <TableColumn fx:id="cenazamowieniaField" prefWidth="169.0" text="cena zamowienia" />
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
