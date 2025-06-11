@@ -1,4 +1,3 @@
-package com.example.projekcik;
 import com.example.projekcik.Osoba;
 
 public class Administrator extends Osoba {
