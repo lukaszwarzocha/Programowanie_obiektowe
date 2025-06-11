@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400" prefWidth="595"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.projekcik.AdminPanelController">
+    <MenuButton mnemonicParsing="false" text="Zarzadzaj">
+        <items>
+            <MenuItem mnemonicParsing="false" onAction="#dodajprodukt" text="Dodaj produkt"/>
+            <MenuItem mnemonicParsing="false" onAction="#pokazprodukty" text="Pokaz dostepne produkty"/>
+            <MenuItem mnemonicParsing="false" onAction="#pokazzamowieniapanel" text="Pokaz zamowienia"/>
+            <MenuItem mnemonicParsing="false" onAction="#pokazklientowpanel" text="Pokaz klientow"/>
+
+            <MenuItem onAction="#wyloguj" text="Wyloguj"/>
+        </items>
+    </MenuButton>
+    <VBox layoutX="351.0" prefHeight="25.0" prefWidth="243.0">
+        <HBox spacing="10">
+            <Label fx:id="loginLabel"/>
+            <Label fx:id="roleLabel"/>
+        </HBox>
+    </VBox>
+    <Label layoutX="203.0" prefHeight="17.0" prefWidth="132.0" text="Jestes zalogowany jako:"/>
+    <VBox fx:id="dodajpanel" layoutX="4.0" layoutY="80.0" managed="false" prefHeight="321.0" prefWidth="600.0"
+          visible="false">
+        <Label prefHeight="53.0" prefWidth="205.0" text="DODAJ NOWY PRODUKT">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label prefHeight="17.0" prefWidth="163.0" text="Nazwa produktu:"/>
+        <TextField fx:id="nazwaField"/>
+        <Label text="Cena produktu w PLN:"/>
+        <TextField fx:id="cenaField"/>
+        <Label text="Ilosc produktu:"/>
+        <TextField fx:id="iloscField"/>
+        <Label text="Opis produktu (opcjonalnie):"/>
+        <TextArea fx:id="opisField" prefHeight="65.0" prefWidth="538.0"/>
+        <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+            <Button onAction="#wyczysc" prefHeight="44.0" prefWidth="157.0" text="Wyczyść dane"/>
+            <Button onAction="#dodaj" prefHeight="44.0" prefWidth="161.0" text="Dodaj produkt"/>
+        </HBox>
+    </VBox>
+
+    <VBox fx:id="dodajpanel3" layoutY="80.0" prefHeight="321.0" prefWidth="595.0" visible="false" managed="false">
+        <Label text="DOSTEPNE PRODUKTY:">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <SplitPane prefHeight="300.0" prefWidth="589.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="472.0">
+                <TableView fx:id="widok" prefHeight="262.0" prefWidth="595.0">
+                    <columns>
+                        <TableColumn fx:id="zaznaczField" prefWidth="75.0" text="usun"/>
+                        <TableColumn fx:id="nazwaproduktuField" prefWidth="147.0" text="nazwa"/>
+                        <TableColumn fx:id="cenaproduktuField" prefWidth="64.0" text="cena"/>
+                        <TableColumn fx:id="iloscproduktuField" prefWidth="61.0" text="ilosc"/>
+                        <TableColumn fx:id="opisproduktuField" prefWidth="246.0" text="opis"/>
+                    </columns>
+                </TableView>
+                <Button layoutX="201.0" layoutY="263.0" mnemonicParsing="false" onAction="#usunprodukt"
+                        prefHeight="34.0" prefWidth="175.0" text="Usun produkt ze sklepu"/>
+            </AnchorPane>
+        </SplitPane>
+    </VBox>
+
+    <VBox fx:id="dodajpanel2" layoutY="101.0" managed="false" prefHeight="299.0" prefWidth="599.0" visible="false">
+        <Label text="WSZYSTKIE ZAMOWIENIA:">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <TableView fx:id="widokzamowien" prefHeight="280.0" prefWidth="599.0">
+            <columns>
+                <TableColumn fx:id="statusField" prefWidth="116.0" text="status zamowienia"/>
+                <TableColumn fx:id="imieField" prefWidth="77.0" text="imie"/>
+                <TableColumn fx:id="nazwiskoField" prefWidth="97.0" text="nazwisko"/>
+                <TableColumn fx:id="loginuzytkownikaField" prefWidth="98.0" text="login"/>
+                <TableColumn fx:id="datazamowieniaField" prefWidth="128.0" text="data zamowienia"/>
+                <TableColumn fx:id="cenazamowieniaField" prefWidth="82.0" text="cena"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <VBox fx:id="dodajpanel4" layoutY="101.0" managed="false" prefHeight="299.0" prefWidth="599.0" visible="false">
+        <Label text="WSZYSCY UZYTKOWNICY:">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <TableView fx:id="widokuzytkownikow" prefHeight="280.0" prefWidth="599.0">
+            <columns>
+                <TableColumn fx:id="id_klientaField" prefWidth="61.0" text="id_klienta"/>
+                <TableColumn fx:id="loginklientaField" prefWidth="95.0" text="login"/>
+                <TableColumn fx:id="imieklientaField" text="imie"/>
+                <TableColumn fx:id="nazwiskoklientaField" prefWidth="79.0" text="nazwisko"/>
+                <TableColumn fx:id="emailklientaField" prefWidth="106.0" text="email"/>
+                <TableColumn fx:id="adresklientaField" prefWidth="177.0" text="adres"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
