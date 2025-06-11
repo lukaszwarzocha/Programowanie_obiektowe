@@ -28,8 +28,6 @@ public class UserPanelController extends LoginController {
     @FXML
     private TextField szukanieField;
     @FXML
-    private Label roleLabel;
-    @FXML
     private Label loginLabel;
     @FXML
     private Label saldoLabel;
@@ -75,10 +73,6 @@ public class UserPanelController extends LoginController {
     public TableColumn<Zamowienie, String> statusField;
     @FXML
     public TableColumn<Zamowienie, Number> cenazamowieniaField;
-    @FXML
-    public TableColumn<Zamowienie, String> imieField;
-    @FXML
-    public TableColumn<Zamowienie, String> nazwiskoField;
     @FXML
     public TableColumn<Zamowienie, java.util.Date> datazamowieniaField;
 
