@@ -20,7 +20,7 @@
     <MenuButton mnemonicParsing="false" text="Zarzadzaj">
         <items>
             <MenuItem mnemonicParsing="false" onAction="#dodajprodukt" text="Dodaj produkt"/>
-            <MenuItem mnemonicParsing="false" onAction="#pokazproduktyitem" text="Pokaz dostepne produkty"/>
+            <MenuItem mnemonicParsing="false" onAction="#pokazprodukty" text="Pokaz dostepne produkty"/>
             <MenuItem mnemonicParsing="false" onAction="#pokazzamowieniapanel" text="Pokaz zamowienia"/>
             <MenuItem mnemonicParsing="false" onAction="#pokazklientowpanel" text="Pokaz klientow"/>
 

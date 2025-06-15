@@ -19,7 +19,7 @@
         <items>
             <MenuItem mnemonicParsing="false" onAction="#kupprodukt" text="Kup produkt" />
             <MenuItem mnemonicParsing="false" onAction="#dodajsrodki" text="Dodaj srodki" />
-            <MenuItem mnemonicParsing="false" onAction="#pokazzamowieniapanel" text="Twoje zamowienia" />
+            <MenuItem mnemonicParsing="false" onAction="#pokazzamowieniapanel" text="Pokaz zamowienia" />
             <MenuItem onAction="#wyloguj" text="Wyloguj" />
         </items>
     </MenuButton>

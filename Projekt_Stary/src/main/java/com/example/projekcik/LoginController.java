@@ -54,6 +54,7 @@ public class LoginController  {
             alert.showAndWait();
         }
     }
+
     private void logowanie(FXMLLoader fxmlLoader) throws IOException {
         Scene scene = new Scene(fxmlLoader.load(), 595, 400);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());

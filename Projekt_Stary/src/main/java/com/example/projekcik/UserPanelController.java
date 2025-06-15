@@ -169,14 +169,13 @@ public class UserPanelController extends LoginController {
         try {
             UserDAO userDAO = new UserDAO();
             List<Produkt> produkty = userDAO.pokazProdukty();
-            ObservableList<Produkt> produkty2 = FXCollections.observableArrayList(produkty);
-            widok.setItems(produkty2);
+            ObservableList<Produkt> produkts = FXCollections.observableArrayList(produkty);
+            widok.setItems(produkts);
             widok.setEditable(true);
             widokkoszyka.setEditable(true);
             zaznaczField.setEditable(true);
             usuncheckbox.setEditable(true);
-            zaznaczField.setCellValueFactory(cellData -> cellData.getValue().zaznaczonyProperty());
-            zaznaczField.setCellValueFactory(cellData -> cellData.getValue().zaznaczonyProperty());
+            zaznaczField.setCellValueFactory(cellData -> cellData.getValue().zaznaczonyProperty());zaznaczField.setCellValueFactory(cellData -> cellData.getValue().zaznaczonyProperty());
             zaznaczField.setCellFactory(CheckBoxTableCell.forTableColumn(zaznaczField));
             usuncheckbox.setCellValueFactory(cellData -> cellData.getValue().zaznaczonydousunieciaProperty());
             usuncheckbox.setCellFactory(CheckBoxTableCell.forTableColumn(usuncheckbox));
@@ -391,8 +390,7 @@ public class UserPanelController extends LoginController {
 
     private void ListenerDoZaznaczen(ObservableList<Produkt> produkty) {
         for (Produkt produkt : produkty) {
-            produkt.zaznaczonyProperty().addListener(
-                    (obs, oldVal, newVal) -> {
+            produkt.zaznaczonyProperty().addListener((obs, oldVal, newVal) -> {
                         if (newVal) {
                             zaznaczoneProdukty.add(produkt.getId_produktu());
                         } else {

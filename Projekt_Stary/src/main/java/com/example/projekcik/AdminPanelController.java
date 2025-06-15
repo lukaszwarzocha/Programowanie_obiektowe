@@ -110,7 +110,7 @@ public class AdminPanelController extends LoginController {
     public void wyswietlogin(String login) {
         loginLabel.setText(login);
         loginLabel.setVisible(true);
-        roleLabel.setText("(Administrator)");
+        roleLabel.setText("(com.example.projekcik.Administrator)");
     }
 
     public void dodajprodukt() {
@@ -171,12 +171,12 @@ public class AdminPanelController extends LoginController {
         opisField.clear();
     }
 
-    public void pokazproduktyitem() {
+    public void pokazprodukty() {
         pokazpanel(dodajpanel3);
-        pokazprodukty();
+        showproducts();
     }
 
-    public void pokazprodukty() {
+    public void showproducts() {
         try {
             UserDAO userDAO = new UserDAO();
             List<Produkt> produkty = userDAO.pokazProdukty();
